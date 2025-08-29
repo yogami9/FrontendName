@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Edit Name</title>
+    </head>
+    <body>
+        <h1>Edit Name</h1>
+        <input type="text" id="nameInput" placeholder="Enter Name">
+        <button onclick="saveName()">Save</button>
+        <p><a href="display.html">View Name</a></p>
+        <div id="message"></div>
+    </body>
+    <script>
+        fetch('/api/name')
+          .then(r=>r.json())
+          .then(data=>document.getElementById('nameInput').value = data.name);
+
+        function saveName() {
+            const name = document.getElementById('nameInput').value;
+            fetch('/api/name',{
+                method: 'POST',
+                headers : {'Content-Type' : 'application/json'},
+                body : JSON.stringify({name :name})
+            })
+            .then(()=>document.getElementById('meassage').textContent = 'Saved!')
+        }
+        
+    </script>
+</html>

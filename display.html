@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Display Name</title>
+    </head>
+    <body>
+        <h1>Current Name</h1>
+        <p id="displayName">Loading ...</p>
+        <button onclick="loadName()">Refresh</button>
+        <p><a href="edit.html">Edit Name</a></p>
+    </body>
+    <script>
+        function loadName() {
+            fetch('/api/name')
+              .then(r=>r.json())
+              .then(data=>{document.getElementById('displayName').textContent = data.name || 'No name set';});
+        }
+
+        loadName();
+    </script>
+</html>
