@@ -11,7 +11,7 @@
     </body>
     <script>
         function loadName() {
-            fetch('/api/name')
+            fetch('https://editnameserver.onrender.com/api/name')
               .then(r=>r.json())
               .then(data=>{document.getElementById('displayName').textContent = data.name || 'No name set';});
         }

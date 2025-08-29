@@ -11,7 +11,7 @@
         <div id="message"></div>
     </body>
     <script>
-        fetch('/api/name')
+        fetch('https://editnameserver.onrender.com/api/name')
           .then(r=>r.json())
           .then(data=>document.getElementById('nameInput').value = data.name);
 
