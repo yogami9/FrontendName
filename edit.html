@@ -17,12 +17,12 @@
 
         function saveName() {
             const name = document.getElementById('nameInput').value;
-            fetch('/api/name',{
+            fetch('https://editnameserver.onrender.com/api/name',{
                 method: 'POST',
                 headers : {'Content-Type' : 'application/json'},
                 body : JSON.stringify({name :name})
             })
-            .then(()=>document.getElementById('meassage').textContent = 'Saved!')
+            .then(()=>document.getElementById('message').textContent = 'Saved!')
         }
         
     </script>
